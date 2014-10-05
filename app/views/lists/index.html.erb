@@ -1,0 +1,12 @@
+<div class="container" ng-controller="listController">
+<div class="row"></div>
+<h1> Shopping List App  </h1>
+
+<button class="btn btn-primary">Add List Item</button>
+
+<% @items.each do |item| %>
+  <div class="row col-sm">
+    <li><%= item.description %></li>
+  </div>
+<% end %>
+</div>
