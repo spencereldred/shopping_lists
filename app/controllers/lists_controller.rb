@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
 
   def index
-    @items = List.all
+    items = List.all
     respond_to do |format|
       format.html
-      format.json { render :json => @items }
+      format.json { render :json => items }
     end
   end
 
