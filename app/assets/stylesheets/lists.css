@@ -1,1 +1,50 @@
+h1 {
+  font-size: 60px;
+}
 
+h2 {
+  font-size: 55px;
+}
+span {
+  font-size: 33px;
+}
+
+li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+button {
+
+  padding-bottom: 40px;
+}
+.item {
+  list-style-type: none;
+}
+
+#delete {
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+#my-title {
+  color: green;
+}
+
+#input-item {
+  width: 50%;
+  background-color: lightblue;
+}
+
+#item-list {
+  color: blue;
+}
+
+#future-items {
+  color: grey;
+}
+
+#done-todo {
+  text-decoration: line-through;
+}
