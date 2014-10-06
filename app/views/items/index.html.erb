@@ -15,6 +15,7 @@
         Done
       </button>
       <span>{{item.description}}</span>
+
     </div>
   </div>
 
@@ -26,7 +27,7 @@
       <button class='btn btn-success btn-sm' style='margin-bottom: 15px;' ng-click='update(item)' ng-model='item'>
         Buy
       </button>
-      <span>{{item.description}}</span>
+      <span>{{item.description}}</span><a id="delete" href="#" ng-click="delete(item)"> Delete</a>
     </div>
   </div>
 </div>

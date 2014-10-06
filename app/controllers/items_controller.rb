@@ -24,7 +24,11 @@ class ItemsController < ApplicationController
 
   def destroy
     Item.destroy(params[:id])
-    redirect_to :index
+    items = Item.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => items }
+    end
   end
 
   private
