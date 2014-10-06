@@ -1,13 +1,13 @@
 app = angular.module("shoppingListApp", ["ngResource"])
 
-app.factory('Lists', ['$resource', function($resource){
-  return $resource('/lists/:id.json', {id: '@id'}, {update: {method: 'PUT'}});
+app.factory('Items', ['$resource', function($resource){
+  return $resource('/items/:id.json', {id: '@id'}, {update: {method: 'PUT'}});
 }]);
 
-app.controller("listController",["$scope", "Lists",
-  function ($scope, Lists) {
+app.controller("itemController",["$scope", "Items",
+  function ($scope, Items) {
     console.log("Controller Loaded!");
-    $scope.items = Lists.query();
+    $scope.items = Items.query();
 
     $scope.update = function (item) {
       console.log("inside update, list item: " + item.done);

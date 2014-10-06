@@ -1,4 +1,4 @@
-lists = List.create([
+items = Item.create([
   {list_name: "Costco", description: "Almond Milk", done: true},
   {list_name: "Costco", description: "Almonds", done: true},
   {list_name: "Costco", description: "Bread", done: true},

@@ -1,4 +1,4 @@
-<div class="container" ng-controller="listController">
+<div class="container" ng-controller="itemController">
   <div class="row"></div>
   <div class="row">
     <h1> Shopping List App</h1>
@@ -7,14 +7,14 @@
   <button class="btn btn-primary">Add List Item</button>
 
   <div class="row">
-    <h1> Shopping List Items</h1>
+    <h1> Items List </h1>
   </div>
   <div ng-repeat="item in items | filter: {done: false} | orderBy: 'description'">
     <div class="row">
       <button class='btn btn-success btn-sm' style='margin-bottom: 15px;' ng-click='update(item)' ng-model='item'>
         Done
       </button>
-      <span>{{item.description}} {{item.done}}</span>
+      <span>{{item.description}}</span>
     </div>
   </div>
 

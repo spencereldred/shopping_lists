@@ -1,6 +1,6 @@
-class CreateLists < ActiveRecord::Migration
+class CreateItems < ActiveRecord::Migration
   def change
-    create_table :lists do |t|
+    create_table :items do |t|
       t.string :list_name
       t.string :description
       t.boolean :done
