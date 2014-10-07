@@ -11,6 +11,15 @@ app.controller("itemController",["$scope", "Items",
   function ($scope, Items) {
     console.log("Controller Loaded!");
     $scope.items = Items.query();
+    $scope.lists = ["Costco", "Whole Foods", "Foodland"];
+
+    $scope.addItem = function () {
+      $scope.newItem.done = false;
+      $scope.newItem.list = "Costco"; // need to use select box
+      item = Items.save($scope.newItem);
+      $scope.items.push(item);
+      $scope.newTodo = {};
+    }
 
     $scope.update = function (item) {
       console.log("inside update, list item: " + item.done);

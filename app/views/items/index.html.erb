@@ -1,17 +1,23 @@
 <div class="container" ng-controller="itemController">
-  <div class="row"></div>
-  <div class="row">
-    <h1> Shopping List App</h1>
+  <div class="row col-sm-offset-1 col-sm-11"></div>
+  <div class="row col-sm-offset-1 col-sm-11">
+    <h1>Shopping List</h1>
   </div>
-
-  <button class="btn btn-primary">Add List Item</button>
-
-  <div class="row">
+  <div class="row col-sm-offset-1 col-sm-11">
+    <!-- select list goes here -->
+  </div>
+  <div class="row col-sm-offset-1 col-sm-11">
+    <form ng-submit="addItem()">
+      <input type="text" ng-model="newItem.description" name="text" id="form-item-input" placeholder=" < new list item >"/><br>
+      <input type="submit" class="btn btn-primary" value="Add List Item"/>
+    </form>
+  </div>
+  <div class="row col-sm-offset-1 col-sm-11">
     <h1> Items List </h1>
   </div>
   <div ng-repeat="item in items | filter: {done: false} | orderBy: 'description'">
-    <div class="row">
-      <button class='btn btn-success btn-sm' style='margin-bottom: 15px;' ng-click='update(item)' ng-model='item'>
+    <div class="row col-sm-offset-1 col-sm-11">
+      <button class='btn btn-warning btn-sm' style='margin-bottom: 15px;' ng-click='update(item)' ng-model='item'>
         Done
       </button>
       <span>{{item.description}}</span>
@@ -19,11 +25,11 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row col-sm-offset-1 col-sm-11">
     <h1> Menu Items</h1>
   </div>
   <div ng-repeat="item in items | filter: {done: true} | orderBy: 'description'">
-    <div class="row">
+    <div class="row col-sm-offset-1 col-sm-11">
       <button class='btn btn-success btn-sm' style='margin-bottom: 15px;' ng-click='update(item)' ng-model='item'>
         Buy
       </button>

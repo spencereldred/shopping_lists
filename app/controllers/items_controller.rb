@@ -9,8 +9,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(params_list)
-    redirect_to :index
+    item = Item.create(params_list)
+    respond_to do |format|
+      format.json {render :json => item}
+      format.html
+    end
   end
 
   def update
