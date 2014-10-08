@@ -11,3 +11,6 @@ test:
   <<: *default
   database: ng-shopping-list
 
+production:
+  <<: *default
+  database: ng-shopping-list
