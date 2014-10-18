@@ -12,28 +12,43 @@
       <input type="submit" class="btn btn-primary" value="Add List Item"/>
     </form>
   </div>
+
   <div class="row col-sm-offset-1 col-sm-11">
     <h1> Items List </h1>
   </div>
-  <div ng-repeat="item in items | filter: {done: false} | orderBy: 'description'">
-    <div class="row col-sm-offset-1 col-sm-11">
-      <button class='btn btn-warning btn-sm' style='margin-bottom: 15px;' ng-click='update(item)' ng-model='item'>
+  <div ng-repeat="item in items | filter: {done: false} | orderBy: 'description'"     ng-click="selectedListItem($index)">
+    <div class="row col-sm-offset-1 col-sm-8 list-item"
+         ng-class-odd="'odd'"
+         ng-class='{itemSelected: $index === isSelectedListRow}'>
+      <button class='btn btn-warning btn-sm'
+              style='margin-bottom: 15px;'
+              ng-click='update(item)'
+              ng-model='item'
+              ng-disabled="isListItemDisabled($index)">
         Done
       </button>
       <span>{{item.description}}</span>
-
     </div>
   </div>
 
   <div class="row col-sm-offset-1 col-sm-11">
     <h1> Menu Items</h1>
   </div>
-  <div ng-repeat="item in items | filter: {done: true} | orderBy: 'description'">
-    <div class="row col-sm-offset-1 col-sm-11">
-      <button class='btn btn-success btn-sm' style='margin-bottom: 15px;' ng-click='update(item)' ng-model='item'>
+  <div ng-repeat="item in items | filter: {done: true} | orderBy: 'description'"
+       ng-click="selectedMenuItem($index)">
+    <div class="row col-sm-offset-1 col-sm-8 list-item"
+         ng-class-odd="'odd'"
+         ng-class='{itemSelected: $index === isSelectedMenuRow}'>
+      <button class='btn btn-success btn-sm'
+              style='margin-bottom: 15px;'
+              ng-click='update(item)'
+              ng-model='item'
+              ng-disabled="isMenuItemDisabled($index)">
         Buy
       </button>
-      <span>{{item.description}}</span><a id="delete" href="#" ng-click="delete(item)"> Delete</a>
+      <span>{{item.description}}</span>
+      <a id="delete" href="#" \
+         ng-click="delete(item)"> Delete</a>
     </div>
   </div>
 </div>

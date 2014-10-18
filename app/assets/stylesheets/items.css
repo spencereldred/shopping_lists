@@ -1,12 +1,12 @@
 h1 {
-  font-size: 60px;
+  font-size: 50px;
 }
 
 h2 {
-  font-size: 55px;
+  font-size: 40px;
 }
 span {
-  font-size: 33px;
+  font-size: 28px;
 }
 
 li {
@@ -15,36 +15,37 @@ li {
 }
 
 button {
-
   padding-bottom: 40px;
 }
-.item {
-  list-style-type: none;
+.list-item {
+  padding-top: 10px;
 }
+
 
 #delete {
   text-decoration: none;
   margin-left: 5px;
   font-size: 18px;
 }
-
 #my-title {
   color: green;
 }
-
 #form-item-input {
   width: 50%;
   background-color: lightblue;
 }
-
 #item-list {
   color: blue;
 }
-
 #future-items {
   color: grey;
 }
-
 #done-todo {
   text-decoration: line-through;
+}
+.odd {
+  background-color: #ecf0f1;
+}
+.itemSelected {
+  background-color: lightgreen;
 }

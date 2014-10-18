@@ -9,7 +9,7 @@ items = Item.create([
   {list_name: "Costco", description: "Craisins", done: true},
   {list_name: "Costco", description: "Dishwasher Pellets", done: true},
   {list_name: "Costco", description: "Emergen-C", done: true},
-  {list_name: "Costco", description: "Garbage Bags - 30 gal", done: true},
+  {list_name: "Costco", description: "Garbage Bags(33 gal)", done: true},
   {list_name: "Costco", description: "Hemp Seeds", done: true},
   {list_name: "Costco", description: "Kettle Chips", done: true},
   {list_name: "Costco", description: "Laundry Soap", done: true},
