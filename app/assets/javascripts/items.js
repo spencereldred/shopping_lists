@@ -7,20 +7,20 @@ app.factory('Items', ['$resource', function($resource){
 // "GET" - query(), "POST" - save(), "DELETE" - $remove() or $delete()
 //  have to specify a "PUT" - $update() function
 
-app.controller("itemController",["$scope", "Items",
-  function ($scope, Items) {
+app.controller("itemController",["$scope", "$q", "Items",
+  function ($scope, $q, Items) {
     console.log("Controller Loaded!");
     $scope.items = Items.query();
     $scope.lists = ["Costco", "Whole Foods", "Foodland"];
 
     $scope.selectedListItem = function (index) {
-      console.log("item div was clicked: " + index);
       $scope.isSelectedListRow = index;
+      $scope.isSelectedMenuRow = undefined;
     }
 
     $scope.selectedMenuItem = function (index) {
-      console.log("item div was clicked: " + index);
       $scope.isSelectedMenuRow = index;
+      $scope.isSelectedListRow = undefined;
     }
 
     $scope.isListItemDisabled = function (index) {
@@ -45,11 +45,29 @@ app.controller("itemController",["$scope", "Items",
       clearSelections();
     }
 
+    var updatePromise = function (item) {
+      var deferred = $q.defer();
+      item.$update();
+      deferred.resolve();
+      return deferred.promise;
+    }
+
     $scope.update = function (item) {
       console.log("inside update, list item: " + item.done);
       item.done = item.done ? false : true;
       console.log(item.done);
-      item.$update();
+
+      updatePromise(item)
+        .then(function() {
+          console.log("promise then block");
+        })
+        .catch(function () {
+          console.log("promise catch block");
+        })
+        .finally(function () {
+          console.log("promise finally block");
+        });
+      // item.$update();
       clearSelections();
     }
 
@@ -67,7 +85,6 @@ app.controller("itemController",["$scope", "Items",
       item.$remove();
       clearSelections();
     }
-
 
   }
 ]);

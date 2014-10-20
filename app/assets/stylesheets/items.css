@@ -20,8 +20,9 @@ button {
 .list-item {
   padding-top: 10px;
 }
-
-
+.list-item:hover {
+  background-color: lightgreen;
+}
 #delete {
   text-decoration: none;
   margin-left: 5px;
@@ -31,8 +32,10 @@ button {
   color: green;
 }
 #form-item-input {
+  font-size: 28px;
   width: 50%;
   background-color: lightblue;
+  border-radius: 10px;
 }
 #item-list {
   color: blue;
@@ -49,3 +52,4 @@ button {
 .itemSelected {
   background-color: lightgreen;
 }
+

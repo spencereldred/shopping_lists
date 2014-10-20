@@ -17,6 +17,9 @@ class ItemsController < ApplicationController
   end
 
   def update
+    # TODO: add try catch block
+    # try to trigger the error block in the AngularJS promise
+    # need to throw an error back!
     item = Item.find(params[:id])
     item.update_attributes(params_list)
     respond_to do |format|

@@ -1,22 +1,24 @@
 <div class="container" ng-controller="itemController">
-  <div class="row col-sm-offset-1 col-sm-11"></div>
-  <div class="row col-sm-offset-1 col-sm-11">
-    <h1>Shopping List</h1>
-  </div>
-  <div class="row col-sm-offset-1 col-sm-11">
-    <!-- select list goes here -->
-  </div>
-  <div class="row col-sm-offset-1 col-sm-11">
-    <form ng-submit="addItem()">
-      <input type="text" ng-model="newItem.description" name="text" id="form-item-input" placeholder=" < new list item >"/><br>
-      <input type="submit" class="btn btn-primary" value="Add List Item"/>
-    </form>
-  </div>
+  <row tite="Shopping List">
+    {{title}}
+  </row>
+  <row>
+    <input type="text"
+           ng-model="newItem.description"
+           name="text" id="form-item-input"
+           placeholder=" < new list item >"/>
+    <br>
+    <button class="btn btn-primary"
+            ng-click="addItem()">
+            Add List Item
+    </button>
+  </row>
 
-  <div class="row col-sm-offset-1 col-sm-11">
-    <h1> Items List </h1>
-  </div>
-  <div ng-repeat="item in items | filter: {done: false} | orderBy: 'description'"     ng-click="selectedListItem($index)">
+  <row>
+    <h1 > Items List </h1>
+    <listitems></listitems>
+  </row>
+  <div ng-repeat="item in items | filter: {done: false} | orderBy: 'description'"     ng-click="selectedListItem($index)" >
     <div class="row col-sm-offset-1 col-sm-8 list-item"
          ng-class-odd="'odd'"
          ng-class='{itemSelected: $index === isSelectedListRow}'>
@@ -29,11 +31,12 @@
       </button>
       <span>{{item.description}}</span>
     </div>
-  </div>
+  </div> <!-- end repeat  -->
 
-  <div class="row col-sm-offset-1 col-sm-11">
-    <h1> Menu Items</h1>
-  </div>
+  <row>
+    <h1> Menu Items S</h1>
+  </row>
+
   <div ng-repeat="item in items | filter: {done: true} | orderBy: 'description'"
        ng-click="selectedMenuItem($index)">
     <div class="row col-sm-offset-1 col-sm-8 list-item"
@@ -47,8 +50,12 @@
         Buy
       </button>
       <span>{{item.description}}</span>
-      <a id="delete" href="#" \
-         ng-click="delete(item)"> Delete</a>
-    </div>
-  </div>
-</div>
+      <button class='btn btn-danger btn-xs'
+              style='margin-bottom: 15px;'
+              ng-click='delete(item)'
+              ng-disabled="isMenuItemDisabled($index)">
+        Delete
+      </button>
+    </div> <!-- end row -->
+  </div> <!-- end repeat -->
+</div> <!-- end controller -->
